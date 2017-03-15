@@ -38,7 +38,9 @@ SLinkedList<E>::SLinkedList()
 // destructor
 template <typename E>
 SLinkedList<E>::~SLinkedList() {
-	// TO BE COMPLETED
+    while (!empty()) {
+        removeFront(); 
+    }
 }
 
 // is list empty?
@@ -48,6 +50,7 @@ bool SLinkedList<E>::empty() const {
 }
 
 // return front element
+template <typename E>
 E& SLinkedList<E>::front() {
 	if (empty()) throw length_error("Empty List");
 	return head->elem;
@@ -66,11 +69,15 @@ void SLinkedList<E>::addFront(const E& e) {
 // remove front element
 template <typename E>
 void SLinkedList<E>::removeFront() {
-	// TO BE COMPLETED 
+	SNode<E> *old = new SNode<E>;   // temp node to hold node to remove
+    old = head;                     // set old to the current head
+    head = old->next;               // unlink old's head from the list
+    delete old;                     // delete the old node
+    n--;
 }
 
 // list size
 template <typename E>
-int SLinkedList<E>::size() {
+int SLinkedList<E>::size() const {
 	return n;
 }
