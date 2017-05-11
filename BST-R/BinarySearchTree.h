@@ -80,7 +80,6 @@ bool BinarySearchTree<E>::findValue(const E& e) const {
                 nodePtr = nodePtr->right;
             }
         }
-
     return false; 
 }
 
@@ -98,23 +97,38 @@ void BinarySearchTree<E>::insertNode(const E& e) {
     }
     else {
         BNode<E>* nodePtr;
+        BNode<E>* curParent;
         nodePtr = root;
         while (nodePtr) {
             if (e < nodePtr->elem) {
+                curParent = nodePtr;
                 nodePtr = nodePtr->left;
-                n++;
             }
             else if (e > nodePtr->elem) {
+                curParent = nodePtr;
                 nodePtr = nodePtr->right;
-                n++;
             }
             else {
                 cout << "Same element found" << endl;
+                return;
             }
         }
-        nodePtr->elem = e;
-        nodePtr->left = new BNode<E>;
-        nodePtr->right = new BNode<E>;
+        // create new node
+        BNode<E>* v = new BNode<E>;
+        v->elem = e;
+        v->parent = curParent;
+        v->left = NULL;
+        v->right = NULL;
+
+        // update parent's pointers
+        if (e < v->parent->elem)  {
+            v->parent->left = v;
+        }
+        else {
+            v->parent->right = v;
+        }
+
+        // increment number of nodes
+        n++;
     }
 }
-
