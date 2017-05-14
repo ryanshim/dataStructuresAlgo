@@ -8,6 +8,9 @@ using namespace std;
 int main() {
     BinarySearchTree<int> BST1;
 
+    // test findValue() exception
+    //BST1.findValue(3);
+
     BST1.insertNode(3);
     BST1.insertNode(1);
     BST1.insertNode(10);
@@ -31,14 +34,44 @@ int main() {
         cout << "Value '2' not found" << endl;
     }
 
-    // search for value 4
+    // search for value 4 
     if (BST1.findValue(4)) {
         cout << "Found value: 4" << endl;
     }
     else {
         cout << "Value '4' not found" << endl;
     }
-    cout << "SIZE: " << BST1.size() << endl;
+
+    // test internal node removal
+    BST1.removeNode(10);
+    // search for value 10
+    if (BST1.findValue(10)) {
+        cout << "Found value: 10" << endl;
+    }
+    else {
+        cout << "Value '10' not found" << endl;
+    }   
+
+    // search for value 4 
+    if (BST1.findValue(4)) {
+        cout << "Found value: 4" << endl;
+    }
+    else {
+        cout << "Value '4' not found" << endl;
+    }
+
+    // test external node removal
+    BST1.removeNode(4);
+    // search for value 4 
+    if (BST1.findValue(4)) {
+        cout << "Found value: 4" << endl;
+    }
+    else {
+        cout << "Value '4' not found" << endl;
+    }
+
+    // test removal of nonexistent node
+    BST1.removeNode(5);
 
     return 0;
 }
