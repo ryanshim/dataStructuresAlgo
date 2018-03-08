@@ -11,6 +11,7 @@ int main() {
     // test findValue() exception
     //BST1.findValue(3);
 
+    BST1.insertNode(11);
     BST1.insertNode(3);
     BST1.insertNode(1);
     BST1.insertNode(10);

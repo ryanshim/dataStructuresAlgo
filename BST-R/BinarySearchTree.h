@@ -199,4 +199,3 @@ void BinarySearchTree<E>::removeNode(const E& e) {
         cout << "Value " << e << " not in tree." << endl;
     }
 }
-

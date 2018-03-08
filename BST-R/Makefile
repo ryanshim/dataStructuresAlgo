@@ -1,6 +1,14 @@
 # Makefile for BinarySearchTree main program
 CC=g++
-CFLAGS=-std=c++11 -Wall
+CFLAGS=-c -std=c++11 -Wall
 
-all: BinarySearchTree_main.cpp BinarySearchTree.h
-	$(CC) $(CFLAGS) BinarySearchTree_main.cpp -o main
+all: main
+
+main: BinarySearchTree_main.o
+	$(CC) BinarySearchTree_main.o -o main 
+
+BinarySearchTree_main.o: BinarySearchTree_main.cpp
+	$(CC) $(CFLAGS) BinarySearchTree_main.cpp
+
+clean:
+	rm *.o main
