@@ -3,8 +3,10 @@ Various data structures and algorithms written in C++
 
 Note: These implementations are based on examples in the text: "Data Structures and Algorithms in C++" by Goodrich, 2nd Ed.
 
+#### Data Structures
 * ArrayQueue (Array based queue)
 * ArrayStack (Array based stack) 
+* BST-R (Binary Search Tree - Recursive)
 * Doubly Linked List
 * FixedVector (Array based container)
 * LinkedQueue (Linked list based queue)
@@ -12,3 +14,5 @@ Note: These implementations are based on examples in the text: "Data Structures 
 * Singly Linked List
 * SNodeList (Singly Linked List w/ Iterator)
 
+#### Algorithms
+* Mergesort
