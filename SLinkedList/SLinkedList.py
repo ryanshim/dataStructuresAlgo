@@ -5,36 +5,58 @@ class Node:
         self.value = value 
         self.next = nxt 
 
-    def get_value(self):
-        return self.value
-
-    def get_next(self):
-        return self.next
-
 class SLinkedList:
     def __init__(self):
-        self.linked_list = []
+        self.n = 0
+        self.head = None
+
+    def empty(self):
+        return (self.n == 0)
 
     def front(self):
-        return self.linked_list[0].get_value()
+        return self.head.value
 
     def back(self):
-        return self.linked_list[len(self.linked_list)-1].get_value() 
+        node = self.head
+        while node.next is not None:
+            node = node.next
+        return node.value
+
+    def find(self, search_val):
+        node = self.head
+        while node is not None:
+            if node.value == search_val:
+                return node
+        return None 
+
+    def insert(self, value, index):
+        if self.n == 0:
+            self.head = Node(value)
+        else:
+            prev = self.head
+            count = 0
+            while count < index:
+                prev = prev.next
+                count += 1
+            temp = Node(value, prev.next)
+            prev.next = temp
 
     def push_back(self, value):
-        obj = Node(value, None)
-        self.linked_list.append(obj)
+        if self.n == 0:
+            self.head = Node(value)
+            self.n += 1
+        else:
+            node = self.head
+            while node.next:
+                node = node.next
+            temp = Node(value)
+            node.next = temp
+            self.n += 1
 
     def display(self):
+        node = self.head
         print('[', end='')
-        for i in range(len(self.linked_list)-1):
-            print(self.linked_list[i].get_value(), end=', ')
-        print(self.linked_list[len(self.linked_list)-1].get_value(), end=']\n')
-
-if __name__ == '__main__':
-    foo = SLinkedList()
-    for i in range(5):
-        foo.push_back(i)
-
-    foo.display() 
-
+        while node.next is not None:
+            print(node.value, end=' --> ')
+            node = node.next
+        print(node.value, end=']\n')
