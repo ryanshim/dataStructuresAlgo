@@ -1,7 +1,8 @@
 # dataStructuresAlgo
-Various data structures and algorithms written in C++
+Various data structures and algorithms written in C++ and Python equivalents.
 
 Note: These implementations are based on examples in the text: "Data Structures and Algorithms in C++" by Goodrich, 2nd Ed.
+Disclaimer: They are bare bones implementations.
 
 #### Data Structures
 * ArrayQueue (Array based queue)
