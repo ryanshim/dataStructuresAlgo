@@ -9,31 +9,31 @@ template <typename E> class SLinkedList;	// forward declaration of SLinkedList
 
 template <typename E>
 class SNode {
-	private:
-		E elem;							// node's element
-		SNode<E> *next;					// ptr to next node
-		friend class SLinkedList<E>;	// provide access for SLinkedList class
+    private:
+        E elem;							// node's element
+        SNode<E> *next;					// ptr to next node
+        friend class SLinkedList<E>;	// provide access for SLinkedList class
 };
 
 template <typename E>
 class SLinkedList {
-	public:
-		SLinkedList();					// constructor
-		~SLinkedList();					// destructor
-		bool empty() const;				// is list empty?
-		E& front();						// return front element
-		void addFront(const E& e);		// add e to front of list
-		void removeFront();				// remove front element
-		int size() const;				// list size
-	private:
-		SNode<E> *head;					// head of list
-		int n;							// number of elements
+    public:
+        SLinkedList();					// constructor
+        ~SLinkedList();					// destructor
+        bool empty() const;				// is list empty?
+        E& front();						// return front element
+        void addFront(const E& e);		// add e to front of list
+        void removeFront();				// remove front element
+        int size() const;				// list size
+    private:
+        SNode<E> *head;					// head of list
+        int n;							// number of elements
 };
 
 // constructor
 template <typename E>
 SLinkedList<E>::SLinkedList()
-	: head(NULL), n(0) { }
+    : head(NULL), n(0) { }
 
 // destructor
 template <typename E>
@@ -46,7 +46,7 @@ SLinkedList<E>::~SLinkedList() {
 // is list empty?
 template <typename E>
 bool SLinkedList<E>::empty() const {
-	return head == NULL;
+    return head == NULL;
 }
 
 // return front element

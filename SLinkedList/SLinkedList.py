@@ -27,6 +27,7 @@ class SLinkedList:
         while node is not None:
             if node.value == search_val:
                 return node
+            node = node.next
         return None 
 
     def insert(self, value, index):
@@ -44,14 +45,13 @@ class SLinkedList:
     def push_back(self, value):
         if self.n == 0:
             self.head = Node(value)
-            self.n += 1
         else:
             node = self.head
             while node.next:
                 node = node.next
             temp = Node(value)
             node.next = temp
-            self.n += 1
+        self.n += 1
 
     def display(self):
         node = self.head
